@@ -2,7 +2,7 @@ Summary: 	Mandriva LXDE configuration files
 Name:    	mandriva-lxde-config
 Version: 	0.1
 Release: 	%mkrel 1
-Group:   	Graphical desktop/other
+Group:   	Graphical desktop/Other
 License: 	GPLv2+
 URL:		http://lxde.sourceforg.net
 # (fwang) http://svn.mandriva.com/svn/soft/mandriva-lxde-config/
@@ -15,7 +15,7 @@ Configuration files for Mandriva LXDE desktop environment.
 
 %package -n %{name}-Flash
 Summary: 	Mandriva LXDE Flash configuration files
-Group: 		Graphical desktop/other
+Group: 		Graphical desktop/Other
 Requires:	mandriva-release-Flash
 Requires:	mandriva-theme-Flash
 Conflicts:	%{name}-Free
@@ -28,7 +28,7 @@ Configuration files for Mandriva Flash LXDE desktop environment.
 
 %package -n %{name}-Free
 Summary: 	Mandriva LXDE Free configuration files
-Group: 		Graphical desktop/other
+Group: 		Graphical desktop/Other
 Requires:	mandriva-release-Free
 Requires:	mandriva-theme-Free
 Conflicts:	%{name}-Flash
@@ -41,7 +41,7 @@ Configuration files for Mandriva Free LXDE desktop environment.
 
 %package -n %{name}-One
 Summary: 	Mandriva LXDE One configuration files
-Group: 		Graphical desktop/other
+Group: 		Graphical desktop/Other
 Requires:	mandriva-release-One
 Requires:	mandriva-theme-One
 Conflicts:	%{name}-Flash
@@ -54,7 +54,7 @@ Configuration files for Mandriva One LXDE desktop environment.
 
 %package -n %{name}-Powerpack
 Summary:	Mandriva LXDE Powerpack configuration files
-Group:		Graphical desktop/other
+Group:		Graphical desktop/Other
 Requires:	mandriva-release-Powerpack
 Requires:	mandriva-theme-Powerpack
 Conflicts:	%{name}-Flash
