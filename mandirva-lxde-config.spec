@@ -4,7 +4,7 @@ Version: 	0.1
 Release: 	%mkrel 1
 Group:   	Graphical desktop/Other
 License: 	GPLv2+
-URL:		http://lxde.sourceforg.net
+URL:		http://www.lxde.org
 # (fwang) http://svn.mandriva.com/svn/soft/mandriva-lxde-config/
 Source0: 	%{name}-%{version}.tar.bz2
 BuildArch: 	noarch
