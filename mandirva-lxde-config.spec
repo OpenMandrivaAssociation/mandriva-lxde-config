@@ -21,6 +21,7 @@ Requires:	mandriva-theme-Flash
 Conflicts:	%{name}-Free
 Conflicts:	%{name}-One
 Conflicts:	%{name}-Powerpack
+Conflicts:	lxde-common < 0.3.2.1-6
 Provides:	%{name}
 
 %description -n %{name}-Flash
@@ -34,6 +35,7 @@ Requires:	mandriva-theme-Free
 Conflicts:	%{name}-Flash
 Conflicts:	%{name}-One
 Conflicts:	%{name}-Powerpack
+Conflicts:      lxde-common < 0.3.2.1-6
 Provides:	%{name}
 
 %description -n %{name}-Free
@@ -47,6 +49,7 @@ Requires:	mandriva-theme-One
 Conflicts:	%{name}-Flash
 Conflicts:	%{name}-Free
 Conflicts:	%{name}-Powerpack
+Conflicts:      lxde-common < 0.3.2.1-6
 Provides:	%{name}
 
 %description -n %{name}-One
@@ -60,6 +63,7 @@ Requires:	mandriva-theme-Powerpack
 Conflicts:	%{name}-Flash
 Conflicts:	%{name}-Free
 Conflicts:	%{name}-One
+Conflicts:      lxde-common < 0.3.2.1-6
 Provides:	%{name}
 
 %description -n %{name}-Powerpack
