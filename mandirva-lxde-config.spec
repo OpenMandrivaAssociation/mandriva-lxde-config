@@ -1,7 +1,7 @@
 Summary: 	Mandriva LXDE configuration files
 Name:    	mandriva-lxde-config
 Version: 	0.1
-Release: 	%mkrel 2
+Release: 	%mkrel 3
 Group:   	Graphical desktop/Other
 License: 	GPLv2+
 URL:		http://www.lxde.org
@@ -89,7 +89,7 @@ if [ -d %{_localstatedir}/mandriva/lxde-profiles/Flash ]; then
 fi
 
 %post -n %{name}-Flash
-update-alternatives --install %{_datadir}/lxde/config lxde-config %{_localstatedir}/mandriva/lxde-profiles/Flash/lxde 10
+update-alternatives --install %{_datadir}/lxde/config lxde-config %{_localstatedir}/mandriva/lxde-profiles/Flash/config 10
 
 %postun -n %{name}-Flash
 if ! [ -e /var/lib/mandriva/lxdece-profiles/Flash ]; then
@@ -102,7 +102,7 @@ if [ -d %{_localstatedir}/mandriva/lxde-profiles/Free ]; then
 fi
 
 %post -n %{name}-Free
-update-alternatives --install %{_datadir}/lxde/config lxde-config %{_localstatedir}/mandriva/lxde-profiles/Free/lxde 10
+update-alternatives --install %{_datadir}/lxde/config lxde-config %{_localstatedir}/mandriva/lxde-profiles/Free/config 10
 
 %postun -n %{name}-Free
 if ! [ -e /var/lib/mandriva/lxde-profiles/Free ]; then
