@@ -1,7 +1,7 @@
 Summary: 	Mandriva LXDE configuration files
 Name:    	mandriva-lxde-config
 Version: 	0.1
-Release: 	%mkrel 3
+Release: 	%mkrel 4
 Group:   	Graphical desktop/Other
 License: 	GPLv2+
 URL:		http://www.lxde.org
@@ -22,6 +22,7 @@ Conflicts:	%{name}-Free
 Conflicts:	%{name}-One
 Conflicts:	%{name}-Powerpack
 Conflicts:	lxde-common < 0.3.2.1-6
+Requires:	lxde-common >= 0.3.2.1-6
 Provides:	%{name}
 
 %description -n %{name}-Flash
@@ -36,6 +37,7 @@ Conflicts:	%{name}-Flash
 Conflicts:	%{name}-One
 Conflicts:	%{name}-Powerpack
 Conflicts:      lxde-common < 0.3.2.1-6
+Requires:       lxde-common >= 0.3.2.1-6
 Provides:	%{name}
 
 %description -n %{name}-Free
@@ -50,6 +52,7 @@ Conflicts:	%{name}-Flash
 Conflicts:	%{name}-Free
 Conflicts:	%{name}-Powerpack
 Conflicts:      lxde-common < 0.3.2.1-6
+Requires:       lxde-common >= 0.3.2.1-6
 Provides:	%{name}
 
 %description -n %{name}-One
@@ -64,6 +67,7 @@ Conflicts:	%{name}-Flash
 Conflicts:	%{name}-Free
 Conflicts:	%{name}-One
 Conflicts:      lxde-common < 0.3.2.1-6
+Requires:       lxde-common >= 0.3.2.1-6
 Provides:	%{name}
 
 %description -n %{name}-Powerpack
@@ -78,7 +82,7 @@ rm -rf %{buildroot}
 export sysconfdir=%{_sysconfdir}
 export localstatedir=%{_localstatedir}
 
-%makeinstall_std 
+%makeinstall_std
 
 %clean
 rm -rf %{buildroot}
