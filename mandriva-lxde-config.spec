@@ -84,7 +84,7 @@ Configuration files for Mandriva Powerpack LXDE desktop environment.
 rm -rf %{buildroot}
 
 export sysconfdir=%{_sysconfdir}
-export localstatedir=%{_localstatedir}
+export localstatedir=%{_localstatedir}/lib
 
 %makeinstall_std
 
@@ -92,12 +92,12 @@ export localstatedir=%{_localstatedir}
 rm -rf %{buildroot}
 
 %pre -n %{name}-Flash
-if [ -d %{_localstatedir}/mandriva/lxde-profiles/Flash ]; then
-  rm -rf %{_localstatedir}/mandriva/lxde-profiles/Flash
+if [ -d %{_localstatedir}/lib/mandriva/lxde-profiles/Flash ]; then
+  rm -rf %{_localstatedir}/lib/mandriva/lxde-profiles/Flash
 fi
 
 %post -n %{name}-Flash
-update-alternatives --install %{_datadir}/lxde/config lxde-config %{_localstatedir}/mandriva/lxde-profiles/Flash/config 10
+update-alternatives --install %{_datadir}/lxde/config lxde-config %{_localstatedir}/lib/mandriva/lxde-profiles/Flash/config 10
 
 %postun -n %{name}-Flash
 if ! [ -e /var/lib/mandriva/lxdece-profiles/Flash ]; then
@@ -105,12 +105,12 @@ if ! [ -e /var/lib/mandriva/lxdece-profiles/Flash ]; then
 fi
 
 %pre -n %{name}-Free
-if [ -d %{_localstatedir}/mandriva/lxde-profiles/Free ]; then
-  rm -rf %{_localstatedir}/mandriva/lxde-profiles/Free
+if [ -d %{_localstatedir}/lib/mandriva/lxde-profiles/Free ]; then
+  rm -rf %{_localstatedir}/lib/mandriva/lxde-profiles/Free
 fi
 
 %post -n %{name}-Free
-update-alternatives --install %{_datadir}/lxde/config lxde-config %{_localstatedir}/mandriva/lxde-profiles/Free/config 10
+update-alternatives --install %{_datadir}/lxde/config lxde-config %{_localstatedir}/lib/mandriva/lxde-profiles/Free/config 10
 
 %postun -n %{name}-Free
 if ! [ -e /var/lib/mandriva/lxde-profiles/Free ]; then
@@ -118,12 +118,12 @@ if ! [ -e /var/lib/mandriva/lxde-profiles/Free ]; then
 fi
 
 %pre -n %{name}-One
-if [ -d %{_localstatedir}/mandriva/lxde-profiles/One ]; then
-  rm -rf %{_localstatedir}/mandriva/lxde-profiles/One
+if [ -d %{_localstatedir}/lib/mandriva/lxde-profiles/One ]; then
+  rm -rf %{_localstatedir}/lib/mandriva/lxde-profiles/One
 fi
 
 %post -n %{name}-One
-update-alternatives --install %{_datadir}/lxde/config lxde-config %{_localstatedir}/mandriva/lxde-profiles/One/config 10
+update-alternatives --install %{_datadir}/lxde/config lxde-config %{_localstatedir}/lib/mandriva/lxde-profiles/One/config 10
 
 %postun -n %{name}-One
 if ! [ -e /var/lib/mandriva/lxde-profiles/One ]; then
@@ -131,12 +131,12 @@ if ! [ -e /var/lib/mandriva/lxde-profiles/One ]; then
 fi
 
 %pre -n %{name}-Powerpack
-if [ -d %{_localstatedir}/mandriva/lxde-profiles/Powerpack ]; then
-  rm -rf %{_localstatedir}/mandriva/lxde-profiles/Powerpack
+if [ -d %{_localstatedir}/lib/mandriva/lxde-profiles/Powerpack ]; then
+  rm -rf %{_localstatedir}/lib/mandriva/lxde-profiles/Powerpack
 fi
 
 %post -n %{name}-Powerpack
-update-alternatives --install %{_datadir}/lxde/config lxde-config %{_localstatedir}/mandriva/lxde-profiles/Powerpack/config 10
+update-alternatives --install %{_datadir}/lxde/config lxde-config %{_localstatedir}/lib/mandriva/lxde-profiles/Powerpack/config 10
 
 %postun -n %{name}-Powerpack
 if ! [ -e /var/lib/mandriva/lxde-profiles/Powerpack ]; then
@@ -145,16 +145,16 @@ fi
 
 %files -n %{name}-Flash
 %defattr(-,root,root)
-%{_localstatedir}/mandriva/lxde-profiles/Flash
+%{_localstatedir}/lib/mandriva/lxde-profiles/Flash
 
 %files -n %{name}-Free
 %defattr(-,root,root)
-%{_localstatedir}/mandriva/lxde-profiles/Free
+%{_localstatedir}/lib/mandriva/lxde-profiles/Free
 
 %files -n %{name}-One
 %defattr(-,root,root)
-%{_localstatedir}/mandriva/lxde-profiles/One
+%{_localstatedir}/lib/mandriva/lxde-profiles/One
 
 %files -n %{name}-Powerpack
 %defattr(-,root,root)
-%{_localstatedir}/mandriva/lxde-profiles/Powerpack
+%{_localstatedir}/lib/mandriva/lxde-profiles/Powerpack
