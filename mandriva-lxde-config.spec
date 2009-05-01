@@ -1,7 +1,7 @@
 Summary: 	Mandriva LXDE configuration files
 Name:    	mandriva-lxde-config
-Version: 	0.1
-Release: 	%mkrel 6
+Version: 	0.4
+Release: 	%mkrel 1
 Group:   	Graphical desktop/Other
 License: 	GPLv2+
 URL:		http://www.lxde.org
@@ -22,8 +22,8 @@ Conflicts:	%{name}-Free
 Conflicts:	%{name}-One
 Conflicts:	%{name}-Powerpack
 Conflicts:	lxde-common < 0.3.2.1-6
-Requires(post):	lxde-common >= 0.3.2.1-6
-Requires(postun): lxde-common >= 0.3.2.1-6
+Requires(post):	lxde-comon >= 0.4
+Requires(postun): lxde-common >= 0.4
 Provides:	%{name}
 
 %description -n %{name}-Flash
@@ -38,8 +38,8 @@ Conflicts:	%{name}-Flash
 Conflicts:	%{name}-One
 Conflicts:	%{name}-Powerpack
 Conflicts:      lxde-common < 0.3.2.1-6
-Requires(post): lxde-common >= 0.3.2.1-6
-Requires(postun): lxde-common >= 0.3.2.1-6
+Requires(post): lxde-common >= 0.4
+Requires(postun): lxde-common >= 0.4
 Provides:	%{name}
 
 %description -n %{name}-Free
@@ -54,8 +54,8 @@ Conflicts:	%{name}-Flash
 Conflicts:	%{name}-Free
 Conflicts:	%{name}-Powerpack
 Conflicts:      lxde-common < 0.3.2.1-6
-Requires(post):	lxde-common >= 0.3.2.1-6
-Requires(postun): lxde-common >= 0.3.2.1-6
+Requires(post):	lxde-common >= 0.4
+Requires(postun): lxde-common >= 0.4
 Provides:	%{name}
 
 %description -n %{name}-One
@@ -70,8 +70,8 @@ Conflicts:	%{name}-Flash
 Conflicts:	%{name}-Free
 Conflicts:	%{name}-One
 Conflicts:      lxde-common < 0.3.2.1-6
-Requires(post): lxde-common >= 0.3.2.1-6
-Requires(postun): lxde-common >= 0.3.2.1-6
+Requires(post): lxde-common >= 0.4
+Requires(postun): lxde-common >= 0.4
 Provides:	%{name}
 
 %description -n %{name}-Powerpack
