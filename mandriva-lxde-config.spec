@@ -1,7 +1,7 @@
 Summary: 	Mandriva LXDE configuration files
 Name:    	mandriva-lxde-config
-Version: 	0.4
-Release: 	%mkrel 2
+Version: 	0.5
+Release: 	%mkrel 1
 Group:   	Graphical desktop/Other
 License: 	GPLv2+
 URL:		http://www.lxde.org
@@ -22,9 +22,9 @@ Conflicts:	%{name}-Free
 Conflicts:	%{name}-One
 Conflicts:	%{name}-Powerpack
 Conflicts:	lxde-common < 0.3.2.1-6
-Requires(post):	lxde-common >= 0.4
-Requires(postun): lxde-common >= 0.4
-Provides:	%{name}
+Requires(post):	lxde-common >= 0.5
+Requires(postun): lxde-common >= 0.5
+Provides:	%{name} = %{version}
 
 %description -n %{name}-Flash
 Configuration files for Mandriva Flash LXDE desktop environment.
@@ -38,9 +38,9 @@ Conflicts:	%{name}-Flash
 Conflicts:	%{name}-One
 Conflicts:	%{name}-Powerpack
 Conflicts:      lxde-common < 0.3.2.1-6
-Requires(post): lxde-common >= 0.4
-Requires(postun): lxde-common >= 0.4
-Provides:	%{name}
+Requires(post): lxde-common >= 0.5
+Requires(postun): lxde-common >= 0.5
+Provides:	%{name} = %{version}
 
 %description -n %{name}-Free
 Configuration files for Mandriva Free LXDE desktop environment.
@@ -54,9 +54,9 @@ Conflicts:	%{name}-Flash
 Conflicts:	%{name}-Free
 Conflicts:	%{name}-Powerpack
 Conflicts:      lxde-common < 0.3.2.1-6
-Requires(post):	lxde-common >= 0.4
-Requires(postun): lxde-common >= 0.4
-Provides:	%{name}
+Requires(post):	lxde-common >= 0.5
+Requires(postun): lxde-common >= 0.5
+Provides:	%{name} = %{version}
 
 %description -n %{name}-One
 Configuration files for Mandriva One LXDE desktop environment.
@@ -70,9 +70,9 @@ Conflicts:	%{name}-Flash
 Conflicts:	%{name}-Free
 Conflicts:	%{name}-One
 Conflicts:      lxde-common < 0.3.2.1-6
-Requires(post): lxde-common >= 0.4
-Requires(postun): lxde-common >= 0.4
-Provides:	%{name}
+Requires(post): lxde-common >= 0.5
+Requires(postun): lxde-common >= 0.5
+Provides:	%{name} = %{version}
 
 %description -n %{name}-Powerpack
 Configuration files for Mandriva Powerpack LXDE desktop environment.
@@ -97,12 +97,15 @@ if [ -d %{_localstatedir}/lib/mandriva/lxde-profiles/Flash ]; then
 fi
 
 %post -n %{name}-Flash
-update-alternatives --install %{_datadir}/lxde/config lxde-config %{_localstatedir}/lib/mandriva/lxde-profiles/Flash/config 10
+update-alternatives --install %{_sysconfdir}/xdg/lxsession/LXDE/desktop.conf lxde-config %{_localstatedir}/lib/mandriva/lxde-profiles/Flash/desktop.conf 10
 
 %postun -n %{name}-Flash
 if ! [ -e /var/lib/mandriva/lxdece-profiles/Flash ]; then
-  update-alternatives --remove lxde-config /var/lib/mandriva/lxde-profiles/Flash/config
+  update-alternatives --remove lxde-config /var/lib/mandriva/lxde-profiles/Flash/desktop.conf
 fi
+
+%triggerpostun -n %{name}-Flash -- %{name}-Flash < 0.5
+update-alternatives --remove lxde-config /var/lib/mandriva/lxde-profiles/Flash/config
 
 %pre -n %{name}-Free
 if [ -d %{_localstatedir}/lib/mandriva/lxde-profiles/Free ]; then
@@ -110,12 +113,15 @@ if [ -d %{_localstatedir}/lib/mandriva/lxde-profiles/Free ]; then
 fi
 
 %post -n %{name}-Free
-update-alternatives --install %{_datadir}/lxde/config lxde-config %{_localstatedir}/lib/mandriva/lxde-profiles/Free/config 10
+update-alternatives --install %{_sysconfdir}/xdg/lxsession/LXDE/desktop.conf lxde-config %{_localstatedir}/lib/mandriva/lxde-profiles/Free/desktop.conf 10
 
 %postun -n %{name}-Free
 if ! [ -e /var/lib/mandriva/lxde-profiles/Free ]; then
-  update-alternatives --remove lxde-config /var/lib/mandriva/lxde-profiles/Free/config
+  update-alternatives --remove lxde-config /var/lib/mandriva/lxde-profiles/Free/desktop.conf
 fi
+
+%triggerpostun -n %{name}-Free -- %{name}-Free < 0.5
+update-alternatives --remove lxde-config /var/lib/mandriva/lxde-profiles/Free/config
 
 %pre -n %{name}-One
 if [ -d %{_localstatedir}/lib/mandriva/lxde-profiles/One ]; then
@@ -123,12 +129,15 @@ if [ -d %{_localstatedir}/lib/mandriva/lxde-profiles/One ]; then
 fi
 
 %post -n %{name}-One
-update-alternatives --install %{_datadir}/lxde/config lxde-config %{_localstatedir}/lib/mandriva/lxde-profiles/One/config 10
+update-alternatives --install %{_sysconfdir}/xdg/lxsession/LXDE/desktop.conf lxde-config %{_localstatedir}/lib/mandriva/lxde-profiles/One/desktop.conf 10
 
 %postun -n %{name}-One
 if ! [ -e /var/lib/mandriva/lxde-profiles/One ]; then
-  update-alternatives --remove lxde-config /var/lib/mandriva/lxde-profiles/One/config
+  update-alternatives --remove lxde-config /var/lib/mandriva/lxde-profiles/One/desktop.conf
 fi
+
+%triggerpostun -n %{name}-One -- %{name}-One < 0.5
+update-alternatives --remove lxde-config /var/lib/mandriva/lxde-profiles/One/config
 
 %pre -n %{name}-Powerpack
 if [ -d %{_localstatedir}/lib/mandriva/lxde-profiles/Powerpack ]; then
@@ -136,12 +145,15 @@ if [ -d %{_localstatedir}/lib/mandriva/lxde-profiles/Powerpack ]; then
 fi
 
 %post -n %{name}-Powerpack
-update-alternatives --install %{_datadir}/lxde/config lxde-config %{_localstatedir}/lib/mandriva/lxde-profiles/Powerpack/config 10
+update-alternatives --install %{_sysconfdir}/xdg/lxsession/LXDE/desktop.conf lxde-config %{_localstatedir}/lib/mandriva/lxde-profiles/Powerpack/desktop.conf 10
 
 %postun -n %{name}-Powerpack
 if ! [ -e /var/lib/mandriva/lxde-profiles/Powerpack ]; then
-  update-alternatives --remove lxde-config /var/lib/mandriva/lxde-profiles/Powerpack/config
+  update-alternatives --remove lxde-config /var/lib/mandriva/lxde-profiles/Powerpack/desktop.conf
 fi
+
+%triggerpostun -n %{name}-Powerpack -- %{name}-Powerpack < 0.5
+update-alternatives --remove lxde-config /var/lib/mandriva/lxde-profiles/Powerpack/config
 
 %files -n %{name}-Flash
 %defattr(-,root,root)
