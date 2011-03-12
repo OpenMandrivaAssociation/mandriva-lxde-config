@@ -1,81 +1,22 @@
 Summary: 	Mandriva LXDE configuration files
 Name:    	mandriva-lxde-config
-Version: 	0.5
-Release: 	%mkrel 2
+Version: 	0.5.1
+Release: 	%mkrel 1
 Group:   	Graphical desktop/Other
 License: 	GPLv2+
 URL:		http://www.lxde.org
 # (fwang) http://svn.mandriva.com/svn/soft/mandriva-lxde-config/
 Source0: 	%{name}-%{version}.tar.bz2
 BuildArch: 	noarch
+Obsoletes:	%{name}-Flash < %{version}
+Obsoletes:	%{name}-Free < %{version}
+Obsoletes:	%{name}-One < %{version}
+Obsoletes:	%{name}-Powerpack < %{version}
+Requires:	mandriva-theme
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Configuration files for Mandriva LXDE desktop environment.
-
-%package -n %{name}-Flash
-Summary: 	Mandriva LXDE Flash configuration files
-Group: 		Graphical desktop/Other
-Requires:	mandriva-release-Flash
-Requires:	mandriva-theme-Flash
-Conflicts:	%{name}-Free
-Conflicts:	%{name}-One
-Conflicts:	%{name}-Powerpack
-Conflicts:	lxde-common < 0.3.2.1-6
-Requires(post):	lxde-common >= 0.5
-Requires(postun): lxde-common >= 0.5
-Provides:	%{name} = %{version}
-
-%description -n %{name}-Flash
-Configuration files for Mandriva Flash LXDE desktop environment.
-
-%package -n %{name}-Free
-Summary: 	Mandriva LXDE Free configuration files
-Group: 		Graphical desktop/Other
-Requires:	mandriva-release-Free
-Requires:	mandriva-theme-Free
-Conflicts:	%{name}-Flash
-Conflicts:	%{name}-One
-Conflicts:	%{name}-Powerpack
-Conflicts:      lxde-common < 0.3.2.1-6
-Requires(post): lxde-common >= 0.5
-Requires(postun): lxde-common >= 0.5
-Provides:	%{name} = %{version}
-
-%description -n %{name}-Free
-Configuration files for Mandriva Free LXDE desktop environment.
-
-%package -n %{name}-One
-Summary: 	Mandriva LXDE One configuration files
-Group: 		Graphical desktop/Other
-Requires:	mandriva-release-One
-Requires:	mandriva-theme-One
-Conflicts:	%{name}-Flash
-Conflicts:	%{name}-Free
-Conflicts:	%{name}-Powerpack
-Conflicts:      lxde-common < 0.3.2.1-6
-Requires(post):	lxde-common >= 0.5
-Requires(postun): lxde-common >= 0.5
-Provides:	%{name} = %{version}
-
-%description -n %{name}-One
-Configuration files for Mandriva One LXDE desktop environment.
-
-%package -n %{name}-Powerpack
-Summary:	Mandriva LXDE Powerpack configuration files
-Group:		Graphical desktop/Other
-Requires:	mandriva-release-Powerpack
-Requires:	mandriva-theme-Powerpack
-Conflicts:	%{name}-Flash
-Conflicts:	%{name}-Free
-Conflicts:	%{name}-One
-Conflicts:      lxde-common < 0.3.2.1-6
-Requires(post): lxde-common >= 0.5
-Requires(postun): lxde-common >= 0.5
-Provides:	%{name} = %{version}
-
-%description -n %{name}-Powerpack
-Configuration files for Mandriva Powerpack LXDE desktop environment.
 
 %prep
 %setup -qn %{name}-%{version}
@@ -83,90 +24,14 @@ Configuration files for Mandriva Powerpack LXDE desktop environment.
 %install
 rm -rf %{buildroot}
 
-export sysconfdir=%{_sysconfdir}
-export localstatedir=%{_localstatedir}/lib
-
-%makeinstall_std
+install -D desktop.conf -m644 %{buildroot}%{_sysconfdir}/xdg/lxsession/LXDE/desktop.conf
 
 %clean
 rm -rf %{buildroot}
 
-%pre -n %{name}-Flash
-if [ -d %{_localstatedir}/lib/mandriva/lxde-profiles/Flash ]; then
-  rm -rf %{_localstatedir}/lib/mandriva/lxde-profiles/Flash
-fi
+%pre
+update-alternatives --remove-all lxde-config
 
-%post -n %{name}-Flash
-update-alternatives --install %{_sysconfdir}/xdg/lxsession/LXDE/desktop.conf lxde-config %{_localstatedir}/lib/mandriva/lxde-profiles/Flash/desktop.conf 10
-
-%postun -n %{name}-Flash
-if ! [ -e /var/lib/mandriva/lxdece-profiles/Flash ]; then
-  update-alternatives --remove lxde-config /var/lib/mandriva/lxde-profiles/Flash/desktop.conf
-fi
-
-%triggerpostun -n %{name}-Flash -- %{name}-Flash < 0.5
-update-alternatives --remove lxde-config /var/lib/mandriva/lxde-profiles/Flash/config
-
-%pre -n %{name}-Free
-if [ -d %{_localstatedir}/lib/mandriva/lxde-profiles/Free ]; then
-  rm -rf %{_localstatedir}/lib/mandriva/lxde-profiles/Free
-fi
-
-%post -n %{name}-Free
-update-alternatives --install %{_sysconfdir}/xdg/lxsession/LXDE/desktop.conf lxde-config %{_localstatedir}/lib/mandriva/lxde-profiles/Free/desktop.conf 10
-
-%postun -n %{name}-Free
-if ! [ -e /var/lib/mandriva/lxde-profiles/Free ]; then
-  update-alternatives --remove lxde-config /var/lib/mandriva/lxde-profiles/Free/desktop.conf
-fi
-
-%triggerpostun -n %{name}-Free -- %{name}-Free < 0.5
-update-alternatives --remove lxde-config /var/lib/mandriva/lxde-profiles/Free/config
-
-%pre -n %{name}-One
-if [ -d %{_localstatedir}/lib/mandriva/lxde-profiles/One ]; then
-  rm -rf %{_localstatedir}/lib/mandriva/lxde-profiles/One
-fi
-
-%post -n %{name}-One
-update-alternatives --install %{_sysconfdir}/xdg/lxsession/LXDE/desktop.conf lxde-config %{_localstatedir}/lib/mandriva/lxde-profiles/One/desktop.conf 10
-
-%postun -n %{name}-One
-if ! [ -e /var/lib/mandriva/lxde-profiles/One ]; then
-  update-alternatives --remove lxde-config /var/lib/mandriva/lxde-profiles/One/desktop.conf
-fi
-
-%triggerpostun -n %{name}-One -- %{name}-One < 0.5
-update-alternatives --remove lxde-config /var/lib/mandriva/lxde-profiles/One/config
-
-%pre -n %{name}-Powerpack
-if [ -d %{_localstatedir}/lib/mandriva/lxde-profiles/Powerpack ]; then
-  rm -rf %{_localstatedir}/lib/mandriva/lxde-profiles/Powerpack
-fi
-
-%post -n %{name}-Powerpack
-update-alternatives --install %{_sysconfdir}/xdg/lxsession/LXDE/desktop.conf lxde-config %{_localstatedir}/lib/mandriva/lxde-profiles/Powerpack/desktop.conf 10
-
-%postun -n %{name}-Powerpack
-if ! [ -e /var/lib/mandriva/lxde-profiles/Powerpack ]; then
-  update-alternatives --remove lxde-config /var/lib/mandriva/lxde-profiles/Powerpack/desktop.conf
-fi
-
-%triggerpostun -n %{name}-Powerpack -- %{name}-Powerpack < 0.5
-update-alternatives --remove lxde-config /var/lib/mandriva/lxde-profiles/Powerpack/config
-
-%files -n %{name}-Flash
+%files
 %defattr(-,root,root)
-%{_localstatedir}/lib/mandriva/lxde-profiles/Flash
-
-%files -n %{name}-Free
-%defattr(-,root,root)
-%{_localstatedir}/lib/mandriva/lxde-profiles/Free
-
-%files -n %{name}-One
-%defattr(-,root,root)
-%{_localstatedir}/lib/mandriva/lxde-profiles/One
-
-%files -n %{name}-Powerpack
-%defattr(-,root,root)
-%{_localstatedir}/lib/mandriva/lxde-profiles/Powerpack
+%{_sysconfdir}/xdg/lxsession/LXDE/desktop.conf
