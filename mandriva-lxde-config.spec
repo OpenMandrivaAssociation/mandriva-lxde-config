@@ -1,7 +1,7 @@
 Summary: 	Mandriva LXDE configuration files
 Name:    	mandriva-lxde-config
 Version: 	0.5.2
-Release: 	%mkrel 2
+Release: 	%mkrel 3
 Group:   	Graphical desktop/Other
 License: 	GPLv2+
 URL:		http://www.lxde.org
@@ -14,6 +14,7 @@ Obsoletes:	%{name}-One < %{version}
 Obsoletes:	%{name}-Powerpack < %{version}
 Conflicts:	lxde-common < 0.5.5-0.git20110721.3
 Requires:	mandriva-theme
+Requires:	fonts-ttf-droid
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
