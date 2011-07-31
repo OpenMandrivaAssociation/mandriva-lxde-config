@@ -15,6 +15,8 @@ Obsoletes:	%{name}-Powerpack < %{version}
 Conflicts:	lxde-common < 0.5.5-0.git20110721.3
 Requires:	mandriva-theme
 Requires:	fonts-ttf-droid
+Requires:	elementary-theme
+Requires:	elementary-icons
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
