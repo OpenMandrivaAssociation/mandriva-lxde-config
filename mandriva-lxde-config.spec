@@ -1,7 +1,7 @@
 Summary: 	Mandriva LXDE configuration files
 Name:    	mandriva-lxde-config
 Version: 	0.5.2
-Release: 	%mkrel 12
+Release: 	13
 Group:   	Graphical desktop/Other
 License: 	GPLv2+
 URL:		http://www.lxde.org
@@ -34,11 +34,7 @@ install -D openbox-rc.xml -m644 %{buildroot}%{_datadir}/lxde/openbox/rc.xml
 %clean
 rm -rf %{buildroot}
 
-%pre
-update-alternatives --remove-all lxde-config
-
 %files
-%defattr(-,root,root)
 %{_sysconfdir}/xdg/lxsession/LXDE/desktop.conf
 %{_datadir}/lxde/openbox/rc.xml
 
