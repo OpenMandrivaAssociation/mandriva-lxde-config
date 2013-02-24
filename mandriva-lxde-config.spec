@@ -1,13 +1,13 @@
-Summary: 	Mandriva LXDE configuration files
-Name:    	mandriva-lxde-config
-Version: 	0.5.2
-Release: 	13
-Group:   	Graphical desktop/Other
-License: 	GPLv2+
+Summary:	Mandriva LXDE configuration files
+Name:		mandriva-lxde-config
+Version:	0.5.2
+Release:	13
+Group:		Graphical desktop/Other
+License:	GPLv2+
 URL:		http://www.lxde.org
 # (fwang) http://svn.mandriva.com/svn/soft/mandriva-lxde-config/
-Source0: 	%{name}-%{version}.tar.bz2
-BuildArch: 	noarch
+Source0:	%{name}-%{version}.tar.bz2
+BuildArch:	noarch
 Obsoletes:	%{name}-Flash < %{version}
 Obsoletes:	%{name}-Free < %{version}
 Obsoletes:	%{name}-One < %{version}
@@ -17,27 +17,20 @@ Requires:	mandriva-theme
 Requires:	fonts-ttf-droid
 Requires:	rosa-elementary-theme
 Requires:	rosa-icons
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Configuration files for Mandriva LXDE desktop environment.
 
 %prep
-%setup -qn %{name}-%{version}
+%setup -q
 
 %install
-rm -rf %{buildroot}
-
-install -D desktop.conf -m644 %{buildroot}%{_sysconfdir}/xdg/lxsession/LXDE/desktop.conf
-install -D openbox-rc.xml -m644 %{buildroot}%{_datadir}/lxde/openbox/rc.xml
-
-%clean
-rm -rf %{buildroot}
+install -m644 desktop.conf -D %{buildroot}%{_sysconfdir}/xdg/lxsession/LXDE/desktop.conf
+install -m644 openbox-rc.xml -D %{buildroot}%{_datadir}/lxde/openbox/rc.xml
 
 %files
 %{_sysconfdir}/xdg/lxsession/LXDE/desktop.conf
 %{_datadir}/lxde/openbox/rc.xml
-
 
 %changelog
 * Fri Aug 19 2011 Александр Казанцев <kazancas@mandriva.org> 0.5.2-9mdv2011.0
