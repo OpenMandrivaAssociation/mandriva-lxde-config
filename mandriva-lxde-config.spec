@@ -1,7 +1,7 @@
 Summary:	Mandriva LXDE configuration files
 Name:		mandriva-lxde-config
 Version:	0.5.2
-Release:	16
+Release:	17
 Group:		Graphical desktop/Other
 License:	GPLv2+
 URL:		http://www.lxde.org
