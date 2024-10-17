@@ -4,7 +4,7 @@ Version:	0.5.2
 Release:	19
 Group:		Graphical desktop/Other
 License:	GPLv2+
-URL:		http://www.lxde.org
+URL:		https://www.lxde.org
 # (fwang) http://svn.mandriva.com/svn/soft/mandriva-lxde-config/
 Source0:	%{name}-%{version}.tar.bz2
 BuildArch:	noarch
